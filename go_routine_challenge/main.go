@@ -20,7 +20,7 @@ func printMessage() {
 }
 
 func main() {
-	msg = "Hello, world,this is experiment for conflict "
+	msg = "Hello, world"
 
 	wg.Add(1)
 	go updateMessage("Hello, universe!")
