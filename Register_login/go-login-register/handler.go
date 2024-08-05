@@ -30,6 +30,15 @@ func HashedPasswrd(pwrd string) string {
 	return string(Hsdpwrd)
 }
 
+// LoginHandler handles user login.
+// @Summary Login
+// @Description Log in to the application
+// @Accept  json
+// @Produce  json
+// @Param   username  body  string  true  "Username"
+// @Success 200 {object} map[string]interface{}
+// @Failure 400 {object} map[string]interface{}
+// @Router /login [post]
 func Authenticate(w http.ResponseWriter, r *http.Request) {
 	var v User
 	w.Header().Set("Content-Type", "application/json")
@@ -77,6 +86,11 @@ func Authenticate(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// LogoutHandler handles user logout.
+// @Summary Logout
+// @Description Log out from the application
+// @Success 200 {object} map[string]interface{}
+// @Router /logout [post]
 func Logout(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	var l User
@@ -117,6 +131,15 @@ func Logout(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// SignupHandler handles user signup.
+// @Summary Signup
+// @Description Create a new user account
+// @Accept  json
+// @Produce  json
+// @Param   username  body  string  true  "Username"
+// @Success 200 {object} map[string]interface{}
+// @Failure 400 {object} map[string]interface{}
+// @Router /signup [post]
 func Register(w http.ResponseWriter, r *http.Request) {
 	var u User
 	//var name, password string
